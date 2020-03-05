@@ -1,0 +1,17 @@
+{
+    "Lua.diagnostics.globals": [
+        "make_rotated_animation_variations_from_sheet",
+        "data",
+        "util",
+        "settings",
+        "rendering",
+        "surface",
+        "entity",
+        "global",
+        "script",
+        "defines",
+        "game",
+        "commands",
+        "circuit_connector_definitions"
+    ]
+}

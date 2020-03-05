@@ -215,12 +215,12 @@ local recharging_animation =
 
 
 -- Sounds
-local hiveVolume = 0.35 * settings.startup["bumble-bots-hive-volume"].value
-local doorVolumeMult = 0.45
+local hiveVolume = 0.3 * settings.startup["bumble-bots-hive-volume"].value
+local doorVolumeMult = 0.5
 
 local working_sound =
 {
-    sound = { filename = "__bumble-bots__/sounds/hive-drone.ogg", volume = hiveVolume  },
+    sound = { filename = "__bumble-bots__/sounds/hive/hive-drone.ogg", volume = hiveVolume  },
     max_sounds_per_type = 3,
     audible_distance_modifier = 0.7,
     probability = 1
@@ -233,10 +233,10 @@ local open_door_trigger_effect =
     sound =
     {
         {
-            filename = "__bumble-bots__/sounds/hatch-open-1.ogg", volume = doorVolumeMult * hiveVolume
+            filename = "__bumble-bots__/sounds/hive/hatch-open-1.ogg", volume = doorVolumeMult * hiveVolume
         },
         {
-            filename = "__bumble-bots__/sounds/hatch-open-2.ogg", volume = doorVolumeMult * hiveVolume
+            filename = "__bumble-bots__/sounds/hive/hatch-open-2.ogg", volume = doorVolumeMult * hiveVolume
         },
 
     },
@@ -251,17 +251,17 @@ local close_door_trigger_effect =
     sound = 
     { 
         {
-            filename = "__bumble-bots__/sounds/hatch-close-1.ogg", volume = doorVolumeMult * hiveVolume
+            filename = "__bumble-bots__/sounds/hive/hatch-close-1.ogg", volume = doorVolumeMult * hiveVolume
         },
         {
-            filename = "__bumble-bots__/sounds/hatch-close-2.ogg", volume = doorVolumeMult * hiveVolume
+            filename = "__bumble-bots__/sounds/hive/hatch-close-2.ogg", volume = doorVolumeMult * hiveVolume
         },
 
     },
     audible_distance_modifier = 0.5
   }
 }
-local vehicle_impact_sound =  { filename = "__bumble-bots__/sounds/bee-hive-impact.ogg", volume = 0.85 }
+local vehicle_impact_sound =  { filename = "__bumble-bots__/sounds/hive/bee-hive-impact.ogg", volume = 0.85 }
 
 -- Apply changes
 properties = 

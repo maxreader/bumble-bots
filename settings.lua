@@ -29,5 +29,15 @@ data:extend({
         minimum_value = 0.0,
         order = "a"
     },
+    {
+        type = "double-setting",
+        name = "bumble-bots-bee-volume",
+        setting_type = "startup",
+        default_value = 5   ,
+        maximum_value = 10.0,
+        minimum_value = 0.0,
+        order = "b"
+    },
+
 
 })

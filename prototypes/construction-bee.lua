@@ -59,3 +59,32 @@ end
 for _,spark in pairs(data.raw["construction-robot"]["construction-robot"].sparks) do
     spark.tint = {r=232,g=172,b=19}
 end
+
+
+local beeVolume = 0.5 * settings.startup["bumble-bots-bee-volume"].value
+
+constructionBee.working_sound =
+{
+    sound =
+    {
+        {
+        filename = "__bumble-bots__/sounds/bees/low-buzz-1.ogg", volume = beeVolume
+        },
+        {
+        filename = "__bumble-bots__/sounds/bees/low-buzz-2.ogg", volume = beeVolume
+        },
+        {
+        filename = "__bumble-bots__/sounds/bees/low-buzz-4.ogg", volume = beeVolume
+        },
+        {
+        filename = "__bumble-bots__/sounds/bees/low-buzz-5.ogg", volume = beeVolume
+        },
+        {
+        filename = "__bumble-bots__/sounds/bees/low-buzz-6.ogg", volume = beeVolume
+        },
+        {
+        filename = "__bumble-bots__/sounds/bees/low-buzz-7.ogg", volume = beeVolume
+        },
+    },
+	audible_distance_modifier = 1,
+}

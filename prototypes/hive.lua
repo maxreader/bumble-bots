@@ -215,15 +215,14 @@ local recharging_animation =
 
 
 -- Sounds
-local hiveVolume = 0.3 * settings.startup["bumble-bots-hive-volume"].value
+local hiveVolume = 1.25 * settings.startup["bumble-bots-hive-volume"].value
 local doorVolumeMult = 0.5
 
 local working_sound =
 {
     sound = { filename = "__bumble-bots__/sounds/hive/hive-drone.ogg", volume = hiveVolume  },
     max_sounds_per_type = 3,
-    audible_distance_modifier = 0.7,
-    probability = 1
+    --audible_distance_modifier = 0.7,
 }
 
 local open_door_trigger_effect =

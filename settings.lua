@@ -38,6 +38,15 @@ data:extend({
         minimum_value = 0.0,
         order = "b"
     },
+    {
+        type = "double-setting",
+        name = "bumble-bots-bush-volume",
+        setting_type = "startup",
+        default_value = 1,
+        maximum_value = 10.0,
+        minimum_value = 0.0,
+        order = "b"
+    },
 
 
 })

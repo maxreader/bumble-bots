@@ -125,11 +125,12 @@ local function get_animation(name)
           {
             filename = "__bumble-bots__/graphics/entity/bush-shadow.png",
             priority = "extra-high",
-            width = 48,
-            height = 24,
+            width = 96,
+            height = 44,
             repeat_count = 10,
             shift = util.by_pixel(8.5, 7.5),
             draw_as_shadow = true,
+            scale = 0.333,
             hr_version =
             {
               filename = "__bumble-bots__/graphics/entity/bush-shadow.png",
@@ -139,19 +140,36 @@ local function get_animation(name)
               repeat_count = 10,
               shift = util.by_pixel(8.5, 7),
               draw_as_shadow = true,
-              scale = 0.5
+              scale = 0.333
             }
           }
         }
       }
 end
 
+-- Sounds
+local animation_sound = 
+{
+    filename = "__bumble-bots__/sounds/bushes/bush-rustle.ogg",
+    volume = 0.2 * settings.startup["bumble-bots-bush-volume"].value,
+}
+
 -- Apply changes to each type
 for _,v in pairs(bushTypes) do
-    bush = data.raw["logistic-container"]["logistic-chest-"..v]
+    local bush = data.raw["logistic-container"]["logistic-chest-"..v]
     bush.animation = get_animation(v)
+    bush.animation_sound = animation_sound
     bush.circuit_wire_connection_point = circuit_connector_definitions["bush"].points
     bush.circuit_connector_sprites = circuit_connector_definitions["bush"].sprites
+    bush.icon = "__bumble-bots__/graphics/icons/"..v..".png"
+    bush.icon_size = 64
+    bush.icon_mipmaps = 1
+
+    
+    local bush_icon = data.raw["item"]["logistic-chest-"..v]
+    bush_icon.icon = "__bumble-bots__/graphics/icons/"..v..".png"
+    bush_icon.icon_size = 64
+    bush_icon.icon_mipmaps = 1
 
 end
 

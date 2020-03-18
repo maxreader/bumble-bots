@@ -1,8 +1,8 @@
 -- Applies new sprites to all five logistic chests
 ---------------------------------------------------------------------------------------------------
-
+local sounds = require("__base__/prototypes/entity/demo-sounds")
 -- List of bush types
-local bushTypes = 
+local bushTypes =
 {
     "storage",
     "passive-provider",
@@ -148,17 +148,24 @@ local function get_animation(name)
 end
 
 -- Sounds
-local animation_sound = 
+--[[local animation_sound = 
 {
     filename = "__bumble-bots__/sounds/bushes/bush-rustle.ogg",
     volume = 0.2 * settings.startup["bumble-bots-bush-volume"].value,
-}
+}]]
+local animation_sound = sounds.big_bush
+for _,v in pairs(animation_sound) do
+    v.volume = 0.5 * settings.startup["bumble-bots-bush-volume"].value
+end
 
 -- Apply changes to each type
 for _,v in pairs(bushTypes) do
     local bush = data.raw["logistic-container"]["logistic-chest-"..v]
     bush.animation = get_animation(v)
     bush.animation_sound = animation_sound
+    bush.open_sound = {filename = "__base__/sound/walking/plant/bush-small-01.ogg", volume = 1}
+    bush.close_sound = {filename = "__base__/sound/walking/plant/bush-small-02.ogg", volume = 1}
+    bush.vehicle_impact_sound = sounds.plant
     bush.circuit_wire_connection_point = circuit_connector_definitions["bush"].points
     bush.circuit_connector_sprites = circuit_connector_definitions["bush"].sprites
     bush.icon = "__bumble-bots__/graphics/icons/"..v..".png"

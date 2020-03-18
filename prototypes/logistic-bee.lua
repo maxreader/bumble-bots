@@ -63,7 +63,7 @@ logisticBee.shadow_idle.y = shadowPropertiesToChange.height
 logisticBee.shadow_in_motion_with_cargo.y = shadowPropertiesToChange.height * 2
 logisticBee.shadow_in_motion.y = shadowPropertiesToChange.height * 3
 
-local beeVolume = 0.5 * settings.startup["bumble-bots-bee-volume"].value
+local beeVolume = 0.375 * settings.startup["bumble-bots-bee-volume"].value
 
 logisticBee.working_sound =
 {

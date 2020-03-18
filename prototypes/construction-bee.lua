@@ -61,7 +61,7 @@ for _,spark in pairs(data.raw["construction-robot"]["construction-robot"].sparks
 end
 
 
-local beeVolume = 0.5 * settings.startup["bumble-bots-bee-volume"].value
+local beeVolume = 0.375 * settings.startup["bumble-bots-bee-volume"].value
 
 constructionBee.working_sound =
 {

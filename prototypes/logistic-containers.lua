@@ -13,7 +13,7 @@ local bushTypes =
 
 
 -- For circuit connections
-local empty_sheet = 
+local empty_sheet =
 {
     filename = '__core__/graphics/empty.png',
     width = 1,
@@ -27,7 +27,7 @@ local empty_sheet =
 
 
 -- Circuit connection locations
-bush_connector_template = 
+bush_connector_template =
 {
   connector_main = empty_sheet,
   connector_shadow = empty_sheet,
@@ -104,7 +104,7 @@ local function get_animation(name)
         layers =
         {
           {
-            filename = "__bumble-bots__/graphics/entity/"..name..".png",
+            filename = "__bumble-bots__/graphics/entity/logistic-bush/"..name..".png",
             priority = "extra-high",
             width = 111,
             height = 99,
@@ -113,7 +113,7 @@ local function get_animation(name)
             scale = 0.333,
             hr_version =
             {
-              filename = "__bumble-bots__/graphics/entity/"..name..".png",
+              filename = "__bumble-bots__/graphics/entity/logistic-bush/"..name..".png",
               priority = "extra-high",
               width = 111,
               height = 99,
@@ -123,7 +123,7 @@ local function get_animation(name)
             }
           },
           {
-            filename = "__bumble-bots__/graphics/entity/bush-shadow.png",
+            filename = "__bumble-bots__/graphics/entity/logistic-bush/bush-shadow.png",
             priority = "extra-high",
             width = 96,
             height = 44,
@@ -133,7 +133,7 @@ local function get_animation(name)
             scale = 0.333,
             hr_version =
             {
-              filename = "__bumble-bots__/graphics/entity/bush-shadow.png",
+              filename = "__bumble-bots__/graphics/entity/logistic-bush/bush-shadow.png",
               priority = "extra-high",
               width = 96,
               height = 44,
@@ -147,12 +147,40 @@ local function get_animation(name)
       }
 end
 
+local corpse = table.deepcopy(data.raw.corpse["passive-provider-chest-remnants"])
+corpse.name = "logistic-bush-remnants"
+corpse.animation = make_rotated_animation_variations_from_sheet (4,
+
+    {
+        filename = "__bumble-bots__/graphics/entity/logistic-bush/bush-corpse.png",
+        priority = "extra-high",
+        line_length = 1,
+        width = 111,
+        height = 111,
+        frame_count = 1,
+        variation_count = 1,
+        axially_symmetrical = false,
+        direction_count = 1,
+        shift = util.by_pixel(0, 0),
+        scale = 0.3,
+        hr_version =
+        {
+            filename = "__bumble-bots__/graphics/entity/logistic-bush/bush-corpse.png",
+            priority = "extra-high",
+            line_length = 1,
+            width = 111,
+            height = 111,
+            frame_count = 1,
+            variation_count = 1,
+            axially_symmetrical = false,
+            direction_count = 1,
+            shift = util.by_pixel(0, 0),
+            scale = 0.36
+        }
+})
+data:extend({corpse})
+
 -- Sounds
---[[local animation_sound = 
-{
-    filename = "__bumble-bots__/sounds/bushes/bush-rustle.ogg",
-    volume = 0.2 * settings.startup["bumble-bots-bush-volume"].value,
-}]]
 local animation_sound = sounds.big_bush
 for _,v in pairs(animation_sound) do
     v.volume = 0.5 * settings.startup["bumble-bots-bush-volume"].value
@@ -171,8 +199,8 @@ for _,v in pairs(bushTypes) do
     bush.icon = "__bumble-bots__/graphics/icons/"..v..".png"
     bush.icon_size = 64
     bush.icon_mipmaps = 1
+    bush.corpse = "logistic-bush-remnants"
 
-    
     local bush_icon = data.raw["item"]["logistic-chest-"..v]
     bush_icon.icon = "__bumble-bots__/graphics/icons/"..v..".png"
     bush_icon.icon_size = 64

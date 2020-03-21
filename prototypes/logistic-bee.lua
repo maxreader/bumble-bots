@@ -90,5 +90,33 @@ logisticBee.working_sound =
     },
 }
 
+data.raw["corpse"]["logistic-robot-remnants"].animation = make_rotated_animation_variations_from_sheet (4,
+{
+  filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee-corpse.png",
+  line_length = 1,
+  width = 116,
+  height = 114,
+  frame_count = 1,
+  variation_count = 1,
+  axially_symmetrical = false,
+  direction_count = 1,
+  shift = util.by_pixel(1, 1),
+  scale = 0.4,
+  hr_version =
+  {
+    filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee-corpse.png",
+    line_length = 1,
+    width = 116,
+    height = 114,
+    frame_count = 1,
+    variation_count = 1,
+    axially_symmetrical = false,
+    direction_count = 1,
+    shift = util.by_pixel(1, 1),
+    scale = 0.4,
+  },
+})
+
+
 -- Changing cargo center
 logisticBee.cargo_centered = {0.0, -0.75}

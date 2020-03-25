@@ -88,3 +88,17 @@ constructionBee.working_sound =
     },
     max_sounds_per_type = 6,
 }
+
+data.raw["corpse"]["construction-robot-remnants"].animation = make_rotated_animation_variations_from_sheet (4,
+{
+  filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-corpse.png",
+  line_length = 1,
+  width = 120,
+  height = 114,
+  frame_count = 1,
+  variation_count = 1,
+  axially_symmetrical = false,
+  direction_count = 1,
+  shift = util.by_pixel(1, 1),
+  scale = 0.333
+})

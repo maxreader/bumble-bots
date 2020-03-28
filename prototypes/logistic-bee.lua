@@ -94,7 +94,10 @@ logisticBee.working_sound = {
             filename = "__bumble-bots__/sounds/bees/buzz-7.ogg",
             volume = beeVolume
         }
-    }
+    },
+    fade_in_ticks = 10,
+    fade_out_ticks = 30,
+    audible_distance_modifier = 0.5,
 }
 
 -- Corpses

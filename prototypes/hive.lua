@@ -154,7 +154,7 @@ local recharging_animation =
 
 -- Sounds
 local hiveVolume = 1.25 * settings.startup["bumble-bots-hive-volume"].value
-local doorVolumeMult = 0.5
+local doorVolumeMult = 1
 
 local working_sound =
 {

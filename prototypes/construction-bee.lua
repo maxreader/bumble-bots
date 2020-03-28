@@ -53,7 +53,7 @@ constructionBee.shadow_working = shadows
 constructionBee.shadow_in_motion.y = 49
 
 -- Working Animation
-constructionBee.working = 
+constructionBee.working =
 {
   filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-working.png",
   priority = "high",
@@ -65,6 +65,20 @@ constructionBee.working =
   direction_count = 16,
   animation_speed = 0.3,
   scale = 0.5
+}
+constructionBee.shadow_working = 
+{
+  filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-shadow.png",
+  priority = "high",
+  line_length = 16,
+  width = 104,
+  height = 49,
+  frame_count = 1,
+  repeat_count = 2,
+  shift = util.by_pixel(33.5, 18.75),
+  direction_count = 16,
+  scale = 0.5,
+  draw_as_shadow = true
 }
 
 for _,spark in pairs(data.raw["construction-robot"]["construction-robot"].sparks) do

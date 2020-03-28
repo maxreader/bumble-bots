@@ -63,17 +63,7 @@ if settings.startup["bumble-bots-enable-hive-animation"].value then
                 line_length = 8,
                 animation_speed = 0.2,
                 scale = 0.5,
-                shift = {0,-0.5},
-                hr_version = {
-                    filename = "__bumble-bots__/graphics/entity/hive/hive-animated.png",
-                    width  = 228,
-                    height = 277,
-                    frame_count = 32,
-                    line_length = 8,
-                    animation_speed = 0.2,
-                    shift = {0,-0.5},
-                    scale = 0.5
-                },
+                shift = {0,-0.5}
             },
             {
                 filename = "__bumble-bots__/graphics/entity/hive/hive-animated-shadow.png",
@@ -84,20 +74,7 @@ if settings.startup["bumble-bots-enable-hive-animation"].value then
                 draw_as_shadow = true,
                 animation_speed = 0.25,
                 scale = 1,
-                shift = {3.125,0.375},
-                hr_version = {
-                    filename = "__bumble-bots__/graphics/entity/hive/hive-animated-shadow.png",
-                    width  = 40,
-                    height = 90,
-                    frame_count = 32,
-                    line_length = 16,
-                    draw_as_shadow = true,
-                    force_hr_shadow = true,
-                    animation_speed = 0.25,
-                    shift = {3.125,0.375},
-                    scale = 1
-
-                }
+                shift = {3.125,0.375}
             }
         }
     }
@@ -112,17 +89,7 @@ else
                 line_length = 1,
                 animation_speed = 0.2,
                 scale = 0.5,
-                shift = {0,-0.5},
-                hr_version = {
-                    filename = "__bumble-bots__/graphics/entity/hive/hive-still.png",
-                    width  = 228,
-                    height = 277,
-                    frame_count = 1,
-                    line_length = 1,
-                    animation_speed = 0.2,
-                    shift = {0,-0.5},
-                    scale = 0.5
-                },
+                shift = {0,-0.5}
             },
             {
                 filename = "__bumble-bots__/graphics/entity/hive/hive-still-shadow.png",
@@ -133,20 +100,7 @@ else
                 draw_as_shadow = true,
                 animation_speed = 0.25,
                 scale = 1,
-                shift = {3.125,-0.25},
-                hr_version = {
-                    filename = "__bumble-bots__/graphics/entity/hive/hive-still-shadow.png",
-                    width  = 40,
-                    height = 90,
-                    frame_count = 1,
-                    line_length = 1,
-                    draw_as_shadow = true,
-                    force_hr_shadow = true,
-                    animation_speed = 0.25,
-                    shift = {3.125,0.625},
-                    scale = 1
-
-                }
+                shift = {3.125,-0.25}
             }
         }
     }
@@ -158,15 +112,7 @@ local door_animation_up = {
     height = 79,
     frame_count = 17,
     shift = util.by_pixel(0,-44.5),
-    scale = 0.48,
-    hr_version = {
-        filename = "__bumble-bots__/graphics/entity/hive/hatch-top.png",
-        width = 97,
-        height = 79,
-        frame_count = 17,
-        shift = util.by_pixel(0,-44.5),
-        scale = 0.48
-    }
+    scale = 0.48
 }
 local door_animation_down = {
     filename = "__bumble-bots__/graphics/entity/hive/hatch-bottom.png",
@@ -174,15 +120,7 @@ local door_animation_down = {
     height = 79,
     frame_count = 17,
     shift = util.by_pixel(0,-44.5),
-    scale = 0.48,
-    hr_version = {
-        filename = "__bumble-bots__/graphics/entity/hive/hatch-bottom.png",
-        width = 97,
-        height = 79,
-        frame_count = 17,
-        shift = util.by_pixel(0,-44.5),
-        scale = 0.48
-    }
+    scale = 0.48
 }
 
 
@@ -301,20 +239,7 @@ data.raw["corpse"]["roboport-remnants"].animation = make_rotated_animation_varia
   axially_symmetrical = false,
   direction_count = 1,
   shift = util.by_pixel(2, 8),
-  scale = 0.4,
-  hr_version =
-  {
-    filename = "__bumble-bots__/graphics/entity/hive/hive-remnants.png",
-    line_length = 1,
-    width = 364,
-    height = 364,
-    frame_count = 1,
-    variation_count = 1,
-    axially_symmetrical = false,
-    direction_count = 1,
-    shift = util.by_pixel(2, 8),
-    scale = 0.4,
-  },
+  scale = 0.4
 })
 
 return

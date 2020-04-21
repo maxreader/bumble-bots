@@ -226,6 +226,14 @@ for _,v in pairs(data.raw['roboport-equipment']) do
     v.recharging_animation = recharging_animation
 end
 
+data.raw["roboport-equipment"]["personal-roboport-equipment"].sprite.filename = "__bumble-bots__/graphics/equipment/personal-beehive-equipment.png"
+data.raw["roboport-equipment"]["personal-roboport-mk2-equipment"].sprite.filename = "__bumble-bots__/graphics/equipment/personal-beehive-mk2-equipment.png"
+data.raw["item"]["personal-roboport-equipment"].icon = "__bumble-bots__/graphics/icons/personal-beehive-equipment-icon.png"
+data.raw["item"]["personal-roboport-equipment"].icon_size = 64
+data.raw["item"]["personal-roboport-equipment"].icon_mipmaps = 1
+data.raw["item"]["personal-roboport-mk2-equipment"].icon = "__bumble-bots__/graphics/icons/personal-beehive-mk2-equipment-icon.png"
+data.raw["item"]["personal-roboport-mk2-equipment"].icon_size = 64
+data.raw["item"]["personal-roboport-mk2-equipment"].icon_mipmaps = 1
 
 -- Corpses
 data.raw["corpse"]["roboport-remnants"].animation = make_rotated_animation_variations_from_sheet(4,

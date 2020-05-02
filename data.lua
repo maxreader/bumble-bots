@@ -13,3 +13,5 @@ for k,v in pairs(data.raw["logistic-robot"]["logistic-robot"].flags) do
   end
 end
 data.raw["logistic-robot"]["logistic-robot"].map_color = {r=1,g=1,b=0.2,a=0.6}]]
+
+data.raw["utility-constants"].default.main_menu_background_image_location = "__bumble-bots__/graphics/title_screen.png"

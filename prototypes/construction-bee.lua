@@ -1,5 +1,6 @@
 local constructionBee = data.raw["construction-robot"]["construction-robot"]
 local constructionBeeCorpse = data.raw["corpse"]["construction-robot-remnants"]
+local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 
 local icon_data = {
     icon = "__bumble-bots__/graphics/icons/construction-bee.png",
@@ -86,36 +87,7 @@ for _,spark in pairs(data.raw["construction-robot"]["construction-robot"].sparks
 end
 
 -- Sounds
-local beeVolume = 0.375 * settings.startup["bumble-bots-bee-volume"].value
-
-constructionBee.working_sound =
-{
-    sound =
-    {
-        {
-        filename = "__bumble-bots__/sounds/bees/low-buzz-1.ogg", volume = beeVolume
-        },
-        {
-        filename = "__bumble-bots__/sounds/bees/low-buzz-2.ogg", volume = beeVolume
-        },
-        {
-        filename = "__bumble-bots__/sounds/bees/low-buzz-4.ogg", volume = beeVolume
-        },
-        {
-        filename = "__bumble-bots__/sounds/bees/low-buzz-5.ogg", volume = beeVolume
-        },
-        {
-        filename = "__bumble-bots__/sounds/bees/low-buzz-6.ogg", volume = beeVolume
-        },
-        {
-        filename = "__bumble-bots__/sounds/bees/low-buzz-7.ogg", volume = beeVolume
-        },
-    },
-    max_sounds_per_type = 6,
-    fade_in_ticks = 10,
-    fade_out_ticks = 30,
-    audible_distance_modifier = 0.5,
-}
+constructionBee.working_sound = buzzSounds.low_buzz
 
 -- Corpses
 constructionBeeCorpse.animation = make_rotated_animation_variations_from_sheet (4,

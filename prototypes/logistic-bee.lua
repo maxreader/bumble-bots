@@ -2,6 +2,7 @@
 ---------------------------------------------------------------------------------------------------
 local logisticBee = data.raw["logistic-robot"]["logistic-robot"]
 local logisticBeeCorpse = data.raw["corpse"]["logistic-robot-remnants"]
+local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 
 -- Icons
 local icon_data = {
@@ -66,39 +67,7 @@ logisticBee.shadow_in_motion.y = shadows.height * 3
 
 
 -- Sounds
-local beeVolume = 0.375 * settings.startup["bumble-bots-bee-volume"].value
-
-logisticBee.working_sound = {
-    sound = {
-        {
-            filename = "__bumble-bots__/sounds/bees/buzz-1.ogg",
-            volume = beeVolume
-        },
-        {
-            filename = "__bumble-bots__/sounds/bees/buzz-2.ogg",
-            volume = beeVolume
-        },
-        {
-            filename = "__bumble-bots__/sounds/bees/buzz-4.ogg",
-            volume = beeVolume
-        },
-        {
-            filename = "__bumble-bots__/sounds/bees/buzz-5.ogg",
-            volume = beeVolume
-        },
-        {
-            filename = "__bumble-bots__/sounds/bees/buzz-6.ogg",
-            volume = beeVolume
-        },
-        {
-            filename = "__bumble-bots__/sounds/bees/buzz-7.ogg",
-            volume = beeVolume
-        }
-    },
-    fade_in_ticks = 10,
-    fade_out_ticks = 30,
-    audible_distance_modifier = 0.5,
-}
+logisticBee.working_sound = buzzSounds.medium_buzz
 
 -- Corpses
 

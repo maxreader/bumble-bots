@@ -131,3 +131,14 @@ logisticBeeCorpse.ground_patch = {
 
 -- Changing cargo center
 logisticBee.cargo_centered = {0.0, -0.75}
+
+--Make bees show up on map
+if settings.startup["bumble-bots-show-bots-on-map"].value then
+    local flags = logisticBee.flags
+    for k,v in pairs(flags) do
+        if v == "not-on-map" then
+            table.remove(flags,k)
+        end
+    end
+    data.raw["logistic-robot"]["logistic-robot"].map_color = {r=1,g=1,b=0.2,a=0.6}
+end

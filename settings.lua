@@ -21,6 +21,13 @@ data:extend({
         order = "3"
     },
     {
+        type = "bool-setting",
+        name = "bumble-bots-show-bots-on-map",
+        setting_type = "startup",
+        default_value = true,
+        order = "4"
+    },
+    {
         type = "double-setting",
         name = "bumble-bots-hive-volume",
         setting_type = "startup",

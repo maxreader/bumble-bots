@@ -149,3 +149,14 @@ constructionBeeCorpse.ground_patch =
         scale = 0.2
     }
 }
+
+--Make bees show up on map
+if settings.startup["bumble-bots-show-bots-on-map"].value then
+    flags = constructionBee.flags
+    for k,v in pairs(flags) do
+        if v == "not-on-map" then
+            table.remove(flags,k)
+        end
+    end
+    constructionBee.map_color = {r = 255, g = 213, b = 25, a = 0.6}
+end

@@ -111,7 +111,7 @@ constructionBee.working_sound =
         filename = "__bumble-bots__/sounds/bees/low-buzz-7.ogg", volume = beeVolume
         },
     },
-    --max_sounds_per_type = 6,
+    max_sounds_per_type = 6,
     fade_in_ticks = 10,
     fade_out_ticks = 30,
     audible_distance_modifier = 0.5,

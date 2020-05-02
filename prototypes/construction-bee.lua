@@ -130,5 +130,5 @@ if settings.startup["bumble-bots-show-bots-on-map"].value then
             table.remove(flags,k)
         end
     end
-    constructionBee.map_color = {r = 255, g = 213, b = 25, a = 0.6}
+    constructionBee.map_color = {r = 255, g = 213, b = 25, a = 153}
 end

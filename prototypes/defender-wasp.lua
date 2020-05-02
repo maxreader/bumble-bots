@@ -148,4 +148,20 @@ if settings.startup["bumble-bots-enable-wasps"].value then
             direction_count = 1,
             scale = 0.25
         })
+    data.raw["corpse"]["defender-remnants"].ground_patch = 
+        {
+            sheet =
+            {
+                filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
+                flags = { "low-object" },
+                line_length = 4,
+                variation_count = 4,
+                frame_count = 1,
+                width = 164,
+                height = 134,
+                shift = {0, 0},
+                tint = {r = 0.2, g = 0.8, b = 0.1, a = 1},
+                scale = 0.125
+            }
+        }
 end

@@ -1,6 +1,9 @@
 if settings.startup["bumble-bots-enable-wasps"].value then
 
+    local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
     local destroyerHornet = data.raw["combat-robot"]["destroyer"]
+    destroyerHornet.working_sound = buzzSounds.low_buzz
+
     local icon_data = {
         icon = "__bumble-bots__/graphics/icons/destroyer-hornet.png",
         icon_size = 64,

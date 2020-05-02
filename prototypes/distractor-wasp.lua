@@ -2,7 +2,9 @@
 ---------------------------------------------------------------------------------------------------
 if settings.startup["bumble-bots-enable-wasps"].value then
 
+    local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
     local distractorWasp = data.raw["combat-robot"]["distractor"]
+    distractorWasp.working_sound = buzzSounds.medium_buzz
 
     -- Icons
     local icon_data = {

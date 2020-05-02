@@ -1,6 +1,10 @@
 if settings.startup["bumble-bots-enable-wasps"].value then
-
+    
+    local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
     local defenderWasp = data.raw["combat-robot"]["defender"]
+
+    defenderWasp.working_sound = buzzSounds.high_buzz
+    
     local icon_data = {
         icon = "__bumble-bots__/graphics/icons/defender-wasp.png",
         icon_size = 64,

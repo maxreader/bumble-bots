@@ -1,0 +1,7 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.18.1
+Date: 2020.05.02
+  Features:
+    - Added German (de) locale, credit to Luzifer Senpai
+  Bugfixes:
+    - Corrected some English locale

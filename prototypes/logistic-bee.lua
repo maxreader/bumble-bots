@@ -19,7 +19,7 @@ end
 
 -- Main Sprites
 local sprites = {
-    filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee.png",
+    filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee-blue.png",
     priority = "high",
     line_length = 16,
     width = 80,

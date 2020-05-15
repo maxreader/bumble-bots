@@ -56,7 +56,7 @@ if settings.startup["bumble-bots-enable-hive-animation"].value then
     base_animation = {
         layers = {
             {
-                filename = "__bumble-bots__/graphics/entity/hive/hive-animated.png",
+                filename = "__bumble-bots__/graphics/entity/hive/hive-blue.png",
                 width  = 228,
                 height = 277,
                 frame_count = 32,

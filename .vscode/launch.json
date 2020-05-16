@@ -10,6 +10,16 @@
             "name": "Factorio Mod Debug",
             "factorioPath": "C:/Program Files/Factorio/bin/x64/factorio.exe",
             "factorioArgs": ["--load-game", "testing"],
+            "hookData": true
+        },
+        
+        {
+            "type": "factoriomod",
+            "request": "launch",
+            "name": "Factorio Mod Debug AB",
+            "factorioPath": "C:/Program Files/Factorio/bin/x64/factorio.exe",
+            "factorioArgs": ["--load-game", "AB Testing"],
+            "hookData": true
         }
     ]
 }

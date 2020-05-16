@@ -22,10 +22,17 @@ data:extend({
     },
     {
         type = "bool-setting",
-        name = "bumble-bots-show-bots-on-map",
+        name = "bumble-bots-enable-flowers",
         setting_type = "startup",
         default_value = true,
         order = "4"
+    },
+    {
+        type = "bool-setting",
+        name = "bumble-bots-show-bots-on-map",
+        setting_type = "startup",
+        default_value = true,
+        order = "5"
     },
     {
         type = "double-setting",

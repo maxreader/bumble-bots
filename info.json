@@ -6,6 +6,6 @@
     "contact": "",
     "homepage": "",
     "factorio_version": "0.18",
-    "dependencies": ["base >= 0.17"],
+    "dependencies": ["base >= 0.17","(?) boblogistics","(?) ShinyBobGFX", "(?) FactorioExtended-Plus-Logistics"],
     "description": "Bots are now bees. Enjoy."
 }

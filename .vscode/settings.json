@@ -12,6 +12,7 @@
         "defines",
         "game",
         "commands",
-        "circuit_connector_definitions"
+        "circuit_connector_definitions",
+        "mods"
     ]
 }

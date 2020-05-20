@@ -1,180 +1,217 @@
 local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 
-local function set_construction_sprites_with_mask(robot, tint)
+local function set_construction_sprites_with_mask(robot, tint, scale)
     local constructionBee = data.raw["construction-robot"][robot]
-    
-    -- Entity Sprites
+    scale = scale or 0.5
+
+-- Main sprites
+---------------------------------------------------------------------------------------------------
     local sprites = {
         layers = {
-        {
-            filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee.png",
-            priority = "high",
-            line_length = 16,
-            width = 66,
-            height = 76,
-            frame_count = 1,
-            shift = util.by_pixel(0,-4.5),
-            direction_count = 16,
-            scale = 0.5
-        },{
-            filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-mask.png",
-            priority = "high",
-            line_length = 16,
-            width = 66,
-            height = 76,
-            frame_count = 1,
-            shift = util.by_pixel(0,-4.5),
-            direction_count = 16,
-            scale = 0.5,
-            flags = {"mask"},
-            tint = tint,
-        },
-    }}
-    
+            {
+                filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee.png",
+                priority = "high",
+                line_length = 16,
+                width = 66,
+                height = 76,
+                frame_count = 1,
+                shift = util.by_pixel(0, -4.5),
+                direction_count = 16,
+                scale = scale
+            }, {
+                filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-mask.png",
+                priority = "high",
+                line_length = 16,
+                width = 66,
+                height = 76,
+                frame_count = 1,
+                shift = util.by_pixel(0, -4.5),
+                direction_count = 16,
+                scale = scale,
+                flags = {"mask"},
+                tint = tint
+            }
+        }
+    }
+
     constructionBee.idle = sprites
     constructionBee.in_motion = sprites
     constructionBee.in_motion.y = 76
-    
-    -- Shadows
-    local shadows = 
-    {
-      filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-shadow.png",
-      priority = "high",
-      line_length = 16,
-      width = 104,
-      height = 49,
-      frame_count = 1,
-      shift = util.by_pixel(33.5, 18.75),
-      direction_count = 16,
-      scale = 0.5,
-      draw_as_shadow = true
+
+-- Shadows
+---------------------------------------------------------------------------------------------------
+    local shadows = {
+        filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-shadow.png",
+        priority = "high",
+        line_length = 16,
+        width = 104,
+        height = 49,
+        frame_count = 1,
+        shift = util.by_pixel(33.5, 18.75),
+        direction_count = 16,
+        scale = scale,
+        draw_as_shadow = true
     }
-    
+
     constructionBee.shadow_in_motion = shadows
     constructionBee.shadow_idle = shadows
     constructionBee.shadow_working = shadows
     constructionBee.shadow_in_motion.y = 49
     constructionBee.shadow_working.repeat_count = 2
-    
-    -- Working Animation
+
+-- Working Animation
+---------------------------------------------------------------------------------------------------
     constructionBee.working = {
         layers = {
-        {
-            filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-working.png",
-            priority = "high",
-            line_length = 2,
-            width = 66,
-            height = 76,
-            frame_count = 2,
-            shift = util.by_pixel(-0.25, -5),
-            direction_count = 16,
-            animation_speed = 0.3,
-            scale = 0.5
-        },{
-            filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-working-mask.png",
-            priority = "high",
-            line_length = 2,
-            width = 66,
-            height = 76,
-            frame_count = 2,
-            shift = util.by_pixel(-0.25, -5),
-            direction_count = 16,
-            animation_speed = 0.3,
-            scale = 0.5,
-            flags = {"mask"},
-            tint = tint,
-        },
-    }}
-    
-    for _,spark in pairs(constructionBee.sparks) do
-        spark.tint = {r=232,g=172,b=19}
-    end
-    
-    -- Sounds
-    constructionBee.working_sound = buzzSounds.low_buzz
-    
-    -- Corpses
-    local constructionBeeCorpse = data.raw["corpse"][robot.."-remnants"]
-    if data.raw["corpse"][robot.."-remnants"] == nil then
-        constructionBeeCorpse = table.deepcopy(data.raw["corpse"]["construction-robot-remnants"])
-        constructionBeeCorpse.name = robot.."-remnants"
+            {
+                filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-working.png",
+                priority = "high",
+                line_length = 2,
+                width = 66,
+                height = 76,
+                frame_count = 2,
+                shift = util.by_pixel(-0.25, -5),
+                direction_count = 16,
+                animation_speed = 0.3,
+                scale = scale
+            }, {
+                filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-working-mask.png",
+                priority = "high",
+                line_length = 2,
+                width = 66,
+                height = 76,
+                frame_count = 2,
+                shift = util.by_pixel(-0.25, -5),
+                direction_count = 16,
+                animation_speed = 0.3,
+                scale = scale,
+                flags = {"mask"},
+                tint = tint
+            }
+        }
+    }
+
+-- Corpse
+---------------------------------------------------------------------------------------------------
+    local constructionBeeCorpse = data.raw["corpse"][robot .. "-remnants"]
+    if data.raw["corpse"][robot .. "-remnants"] == nil then
+        constructionBeeCorpse = table.deepcopy(
+                                    data.raw["corpse"]["construction-robot-remnants"])
+        constructionBeeCorpse.name = robot .. "-remnants"
         data:extend{constructionBeeCorpse}
     end
 
-    constructionBeeCorpse.animation = make_rotated_animation_variations_from_sheet(4, {
-        layers = {
-            {
-                filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-corpse.png",
-                line_length = 1,
-                width = 120,
-                height = 114,
-                frame_count = 1,
-                variation_count = 1,
-                axially_symmetrical = false,
-                direction_count = 1,
-                shift = util.by_pixel(1, 1),
-                scale = 0.333
-            },{
-                filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-corpse-mask.png",
-                line_length = 1,
-                width = 120,
-                height = 114,
-                frame_count = 1,
-                variation_count = 1,
-                axially_symmetrical = false,
-                direction_count = 1,
-                shift = util.by_pixel(1, 1),
-                scale = 0.333,
-                flags = {"mask"},
-                tint = tint,
+    constructionBeeCorpse.animation =
+        make_rotated_animation_variations_from_sheet(4, {
+            layers = {
+                {
+                    filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-corpse.png",
+                    line_length = 1,
+                    width = 120,
+                    height = 114,
+                    frame_count = 1,
+                    variation_count = 1,
+                    axially_symmetrical = false,
+                    direction_count = 1,
+                    shift = util.by_pixel(1, 1),
+                    scale = 0.333
+                }, {
+                    filename = "__bumble-bots__/graphics/entity/construction-bee/construction-bee-corpse-mask.png",
+                    line_length = 1,
+                    width = 120,
+                    height = 114,
+                    frame_count = 1,
+                    variation_count = 1,
+                    axially_symmetrical = false,
+                    direction_count = 1,
+                    shift = util.by_pixel(1, 1),
+                    scale = 0.333,
+                    flags = {"mask"},
+                    tint = tint
 
+                }
             }
-        }     
-    })
-    
-    
-    constructionBeeCorpse.ground_patch = 
-    {
-        sheet =
+        })
+
+    constructionBeeCorpse.ground_patch =
         {
-            filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
-            flags = { "low-object" },
-            line_length = 4,
-            variation_count = 4,
-            frame_count = 1,
-            width = 164,
-            height = 134,
-            shift = {0, 0.125},
-            tint = {r = 0.2, g = 0.8, b = 0.1, a = 1},
-            scale = 0.2
+            sheet = {
+                filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
+                flags = {"low-object"},
+                line_length = 4,
+                variation_count = 4,
+                frame_count = 1,
+                width = 164,
+                height = 134,
+                shift = {0, 0.125},
+                tint = {r = 0.2, g = 0.8, b = 0.1, a = 1},
+                scale = 0.2
+            }
         }
-    }
-    
+
+-- icons
+---------------------------------------------------------------------------------------------------
+
     local icons = {
         {
             icon = "__bumble-bots__/graphics/icons/construction-bee.png",
-            icon_size = 64,
-        },{
+            icon_size = 64
+        }, {
             icon = "__bumble-bots__/graphics/icons/construction-bee-mask.png",
             icon_size = 64,
             tint = tint
-        },
+        }
     }
-    
+
     constructionBee.icons = icons
     data.raw["item"][robot].icons = icons
     constructionBeeCorpse.icons = icons
-    
-    --Make bees show up on map
+
+
+-- Misc.
+---------------------------------------------------------------------------------------------------
+    -- Sparks
+    for _, spark in pairs(constructionBee.sparks) do
+        spark.tint = {r = 232, g = 172, b = 19}
+    end
+
+    -- Sounds
+    constructionBee.working_sound = buzzSounds.low_buzz
+
+    -- Make bees show up on map
     if settings.startup["bumble-bots-show-bots-on-map"].value then
         flags = constructionBee.flags
-        for k,v in pairs(flags) do
-            if v == "not-on-map" then
-                table.remove(flags,k)
-            end
+        for k, v in pairs(flags) do
+            if v == "not-on-map" then table.remove(flags, k) end
         end
         constructionBee.map_color = {r = 255, g = 213, b = 25, a = 153}
     end
 end
 
-set_construction_sprites_with_mask("construction-robot", {255,200,80,155})
+
+set_construction_sprites_with_mask("construction-robot", {255, 200, 80, 155})
+
+if mods["boblogistics"] then
+    local mapping = {
+        ["construction-robot"] = {255, 200, 80, 155},
+        ["bob-construction-robot-2"] = {255, 79, 79, 155},
+        ["bob-construction-robot-3"] = {79, 82, 255, 155},
+        ["bob-construction-robot-4"] = {173, 79, 255, 155},
+        ["bob-construction-robot-5"] = {79, 255, 91, 155}
+    }
+    for robot, color in pairs(mapping) do
+        set_construction_sprites_with_mask(robot, color)
+    end
+end
+
+if mods["angelsindustries"] then
+    set_construction_sprites_with_mask("angels-construction-robot", {161, 129, 0, 179}, 0.75)
+end
+
+if mods["pyindustry"] then
+    set_construction_sprites_with_mask("py-construction-robot-01", {222, 127, 2, 179})
+end
+
+if mods["pyhightech"] then
+    set_construction_sprites_with_mask("construction-robot-ht", {9, 0, 135, 179})
+end 

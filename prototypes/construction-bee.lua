@@ -3,6 +3,7 @@ local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 local function set_construction_sprites_with_mask(robot, tint, scale)
     local constructionBee = data.raw["construction-robot"][robot]
     scale = scale or 0.5
+    scale = scale * bumble_bots.bot_size_multiplier
 
 -- Main sprites
 ---------------------------------------------------------------------------------------------------
@@ -209,9 +210,9 @@ if mods["angelsindustries"] then
 end
 
 if mods["pyindustry"] then
-    set_construction_sprites_with_mask("py-construction-robot-01", {222, 127, 2, 179})
+    set_construction_sprites_with_mask("py-construction-robot-01", {197, 69, 9, 155})
 end
 
 if mods["pyhightech"] then
-    set_construction_sprites_with_mask("construction-robot-ht", {9, 0, 135, 179})
+    set_construction_sprites_with_mask("construction-robot-ht", {3, 17, 67, 179}, 1.25)
 end 

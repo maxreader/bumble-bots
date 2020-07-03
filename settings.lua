@@ -33,6 +33,13 @@ data:extend({
         setting_type = "startup",
         default_value = true,
         order = "5"
+    },{
+        type = "string-setting",
+        name = "bumble-bots-bee-size",
+        setting_type = "startup",
+        default_value = "normal",
+        allowed_values = {"large","normal","small","tiny"},
+        order = "6"
     },
     {
         type = "double-setting",
@@ -64,3 +71,4 @@ data:extend({
 
 
 })
+

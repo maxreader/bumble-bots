@@ -5,6 +5,7 @@ local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 local function set_logistic_sprites_with_mask(robot, tint, scale)
     local logisticBee = data.raw["logistic-robot"][robot]
     scale = scale or 0.5
+    scale = scale * bumble_bots.bot_size_multiplier
 
 -- Main sprites
 ---------------------------------------------------------------------------------------------------
@@ -189,7 +190,7 @@ if mods["pyindustry"] then
 end
 
 if mods["pyhightech"] then
-    set_logistic_sprites_with_mask("logistic-robot-ht", {46, 203, 255, 179})
+    set_logistic_sprites_with_mask("logistic-robot-ht", {46, 203, 255, 179}, 1.25)
 end
 
 

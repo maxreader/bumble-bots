@@ -13,6 +13,8 @@
         "game",
         "commands",
         "circuit_connector_definitions",
-        "mods"
-    ]
+        "mods",
+        "log"
+    ],
+    "todo-tree.regex.regex": "((\\/\\/|#|<!--|;|\\/\\*|--|--!|--\\?|--\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])"
 }

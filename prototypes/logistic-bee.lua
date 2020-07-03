@@ -4,6 +4,8 @@ local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 
 local function set_logistic_sprites_with_mask(robot, tint, scale)
     local logisticBee = data.raw["logistic-robot"][robot]
+    if not logisticBee then log("Error: Logistic robot \""..robot.."\" not found.") return end
+
     scale = scale or 0.5
     scale = scale * bumble_bots.bot_size_multiplier
 

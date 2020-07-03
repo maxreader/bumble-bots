@@ -2,6 +2,7 @@ local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 
 local function set_construction_sprites_with_mask(robot, tint, scale)
     local constructionBee = data.raw["construction-robot"][robot]
+    if not constructionBee then log("Error: Construction robot \""..robot.."\" not found.") return end
     scale = scale or 0.5
     scale = scale * bumble_bots.bot_size_multiplier
 

@@ -33,7 +33,7 @@ local function set_hive_sprites_with_mask(level, tint, animated, scale)
     scale = scale or 1
     animated = animated or true
     local hive = data.raw["roboport"][level]
-    if not hive then log("Error: Roboport \""..level"\" not found.") return end
+    if not hive then log("Error: Roboport \""..level.."\" not found.") return end
     local mainShift = {0, -0.5 * scale}
 
     -- Main sprites

@@ -182,7 +182,7 @@ local function set_construction_sprites_with_mask(robot, tint, scale)
 
     -- Make bees show up on map
     if settings.startup["bumble-bots-show-bots-on-map"].value then
-        flags = constructionBee.flags
+        local flags = constructionBee.flags
         for k, v in pairs(flags) do
             if v == "not-on-map" then table.remove(flags, k) end
         end
@@ -190,35 +190,4 @@ local function set_construction_sprites_with_mask(robot, tint, scale)
     end
 end
 
-
-set_construction_sprites_with_mask("construction-robot", {255, 200, 80, 155})
-
-if mods["boblogistics"] then
-    local mapping = {
-        ["construction-robot"] = {255, 200, 80, 155},
-        ["bob-construction-robot-2"] = {255, 79, 79, 155},
-        ["bob-construction-robot-3"] = {79, 82, 255, 155},
-        ["bob-construction-robot-4"] = {173, 79, 255, 155},
-        ["bob-construction-robot-5"] = {79, 255, 91, 155}
-    }
-    for robot, color in pairs(mapping) do
-        set_construction_sprites_with_mask(robot, color)
-    end
-end
-
-if mods["angelsindustries"] then
-    set_construction_sprites_with_mask("angels-construction-robot", {161, 129, 0, 179}, 0.75)
-end
-
-if mods["pyindustry"] then
-    set_construction_sprites_with_mask("py-construction-robot-01", {197, 69, 9, 155})
-end
-
-if mods["pyhightech"] then
-    set_construction_sprites_with_mask("construction-robot-ht", {3, 17, 67, 179}, 1.25)
-end 
-
-if mods["FactorioExtended-Plus-Logistics"] then
-    set_construction_sprites_with_mask("construction-robot-mk2", {3, 252, 173, 179})
-    set_construction_sprites_with_mask("construction-robot-mk3", {0, 52, 255, 179})
-end
+return set_construction_sprites_with_mask

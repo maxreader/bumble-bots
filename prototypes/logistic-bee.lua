@@ -164,40 +164,4 @@ local function set_logistic_sprites_with_mask(robot, tint, scale)
 
 end
 
-set_logistic_sprites_with_mask("logistic-robot", {r = 1, g = 0.72, b = 0.1, a = 0.7})
-
-if mods["boblogistics"] then
-    local mapping = {
-        ["logistic-robot"] = {255, 207, 15, 179},
-        ["bob-logistic-robot-2"] = {255, 15, 15, 179},
-        ["bob-logistic-robot-3"] = {15, 19, 255, 179},
-        ["bob-logistic-robot-4"] = {143, 15, 255, 179},
-        ["bob-logistic-robot-5"] = {15, 255, 31, 179},
-    }
-    for robot, color in pairs(mapping) do
-        set_logistic_sprites_with_mask(robot, color)
-    end
-end
-
-
-if mods["angelsindustries"] then
-    set_logistic_sprites_with_mask("cargo-robot", {161, 129, 0, 179}, 0.75)
-    set_logistic_sprites_with_mask("cargo-robot-2", {0, 0, 0, 179}, 0.85)
-
-end
-
-
-if mods["pyindustry"] then
-    set_logistic_sprites_with_mask("py-logistic-robot-01", {171, 19, 19, 179})
-end
-
-if mods["pyhightech"] then
-    set_logistic_sprites_with_mask("logistic-robot-ht", {46, 203, 255, 179}, 1.25)
-end
-
-if mods["FactorioExtended-Plus-Logistics"] then
-    set_logistic_sprites_with_mask("logistic-robot-mk2", {3, 252, 173, 179})
-    set_logistic_sprites_with_mask("logistic-robot-mk3", {0, 52, 255, 179})
-end
-
-
+return set_logistic_sprites_with_mask

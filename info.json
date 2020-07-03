@@ -6,6 +6,15 @@
     "contact": "",
     "homepage": "",
     "factorio_version": "0.18",
-    "dependencies": ["base >= 0.17","? boblogistics","! ShinyBobGFX", "! ShinyAngelGFX", "(?) FactorioExtended-Plus-Logistics", "? pyindustry","? pyhightech"],
+    "dependencies": [
+        "base >= 0.17",
+        "? boblogistics",
+        "! ShinyBobGFX",
+        "! ShinyAngelGFX",
+        "(?) FactorioExtended-Plus-Logistics",
+        "? pyindustry",
+        "? pyhightech",
+        "? skan-fusion-robots"
+    ],
     "description": "Bots are now bees. Enjoy."
 }

@@ -272,40 +272,4 @@ local function set_hive_sprites_with_mask(level, tint, animated, scale)
 
 end
 
-local animated = settings.startup["bumble-bots-enable-hive-animation"].value
-set_hive_sprites_with_mask("roboport", {255, 200, 80, 155}, animated)
-
--- get rid of mask for vanilla port to let the base graphics shine through
-local graphicsLevels = {
-    "base", "base_animation", "door_animation_up", "door_animation_down"
-}
-local vanillaRoboport = data.raw["roboport"]["roboport"]
-for k,v in pairs(graphicsLevels) do
-    table.remove(vanillaRoboport[v].layers, 2)
-end
-
-
-
-
-if mods["boblogistics"] then
-    local mapping = {
-        ["roboport"] = {255, 200, 80, 155},
-        ["bob-roboport-2"] = {255, 79, 79, 240},
-        ["bob-roboport-3"] = {79, 82, 255, 240},
-        ["bob-roboport-4"] = {173, 79, 255, 240}
-    }
-    for robot, color in pairs(mapping) do
-        set_hive_sprites_with_mask(robot, color)
-    end
-end
-
-if mods["pyindustry"] then
-    set_hive_sprites_with_mask("py-roboport-mk01", {255, 169, 10, 240}, animated,
-                              0.75)
-end
-
-if mods["FactorioExtended-Plus-Logistics"] then
-    set_hive_sprites_with_mask("roboport-mk2", {3, 252, 173, 240})
-    set_hive_sprites_with_mask("roboport-mk3", {0, 52, 255, 240})
-end
-return
+return set_hive_sprites_with_mask

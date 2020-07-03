@@ -306,6 +306,6 @@ end
 
 if mods["FactorioExtended-Plus-Logistics"] then
     set_hive_sprites_with_mask("roboport-mk2", {3, 252, 173, 240})
-    set_hive_sprites_with_mask("roboport-mk3", {103, 52, 235, 240})
+    set_hive_sprites_with_mask("roboport-mk3", {52, 89, 235, 240})
 end
 return

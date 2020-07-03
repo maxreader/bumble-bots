@@ -219,5 +219,5 @@ end
 
 if mods["FactorioExtended-Plus-Logistics"] then
     set_construction_sprites_with_mask("construction-robot-mk2", {3, 252, 173, 179})
-    set_construction_sprites_with_mask("construction-robot-mk3", {103, 52, 235, 179})
+    set_construction_sprites_with_mask("construction-robot-mk3", {52, 89, 235, 179})
 end

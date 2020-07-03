@@ -216,3 +216,8 @@ end
 if mods["pyhightech"] then
     set_construction_sprites_with_mask("construction-robot-ht", {3, 17, 67, 179}, 1.25)
 end 
+
+if mods["FactorioExtended-Plus-Logistics"] then
+    set_construction_sprites_with_mask("logistic-robot-mk2", {3, 252, 173, 179})
+    set_construction_sprites_with_mask("logistic-robot-mk3", {103, 52, 235, 179})
+end

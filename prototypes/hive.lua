@@ -28,7 +28,7 @@ data.raw["item"]["personal-roboport-mk2-equipment"].icon_size = 64
 local hiveVolume = 1.25 * settings.startup["bumble-bots-hive-volume"].value
 local doorVolumeMult = 1
 
-local function set_hive_sprite_with_mask(level, tint, animated, scale)
+local function set_hive_sprites_with_mask(level, tint, animated, scale)
     tint = tint or {255, 0, 255,}
     scale = scale or 1
     animated = animated or true
@@ -273,7 +273,7 @@ local function set_hive_sprite_with_mask(level, tint, animated, scale)
 end
 
 local animated = settings.startup["bumble-bots-enable-hive-animation"].value
-set_hive_sprite_with_mask("roboport", {255, 200, 80, 155}, animated)
+set_hive_sprites_with_mask("roboport", {255, 200, 80, 155}, animated)
 
 -- get rid of mask for vanilla port to let the base graphics shine through
 local graphicsLevels = {
@@ -295,13 +295,17 @@ if mods["boblogistics"] then
         ["bob-roboport-4"] = {173, 79, 255, 240}
     }
     for robot, color in pairs(mapping) do
-        set_hive_sprite_with_mask(robot, color)
+        set_hive_sprites_with_mask(robot, color)
     end
 end
 
 if mods["pyindustry"] then
-    set_hive_sprite_with_mask("py-roboport-mk01", {255, 169, 10, 240}, animated,
+    set_hive_sprites_with_mask("py-roboport-mk01", {255, 169, 10, 240}, animated,
                               0.75)
 end
 
+if mods["FactorioExtended-Plus-Logistics"] then
+    set_hive_sprites_with_mask("logistic-robot-mk2", {3, 252, 173, 240})
+    set_hive_sprites_with_mask("logistic-robot-mk3", {103, 52, 235, 240})
+end
 return

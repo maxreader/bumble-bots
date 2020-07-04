@@ -9,12 +9,13 @@
     "dependencies": [
         "base >= 0.17",
         "? boblogistics",
-        "! ShinyBobGFX",
-        "! ShinyAngelGFX",
-        "(?) FactorioExtended-Plus-Logistics",
+        "? bobwarfare",
+        "? FactorioExtended-Plus-Logistics",
         "? pyindustry",
         "? pyhightech",
-        "? skan-fusion-robots"
+        "? skan-fusion-robots",
+        "! ShinyBobGFX",
+        "! ShinyAngelGFX"
     ],
     "description": "Bots are now bees. Enjoy."
 }

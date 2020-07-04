@@ -2,7 +2,9 @@
 Version: 0.18.2
 Date: 2020.07.03
   Features:
-    - Added modded support.
+    - Added modded support for construction bees, logistic bees, and beehives.
+    - Bee size setting. Settings include large, normal, small, and tiny
+    - Option to turn of logistic flower graphics
   Supported Mods:
     - Bob's Logistics
     - Angel's Industries

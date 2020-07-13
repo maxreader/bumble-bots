@@ -15,6 +15,11 @@ if settings.startup["bumble-bots-enable-wasps"].value then
         defenderWasp[k] = v
         data.raw["capsule"]["defender-capsule"][k] = v
         data.raw["corpse"]["defender-remnants"][k] = v
+        local item = data.raw["item"]["defender-robot"]
+        if item then
+            item.pictures = nil
+            item[k] = v
+        end
     end
 
     local graphics = {

@@ -14,6 +14,11 @@ if settings.startup["bumble-bots-enable-wasps"].value then
         destroyerHornet[k] = v
         data.raw["capsule"]["destroyer-capsule"][k] = v
         data.raw["corpse"]["destroyer-remnants"][k] = v
+        local item = data.raw["item"]["destroyer-robot"]
+        if item then
+            item.pictures = nil
+            item[k] = v
+        end
     end
 
     local graphics = {

@@ -17,6 +17,11 @@ if settings.startup["bumble-bots-enable-wasps"].value then
         distractorWasp[k] = v
         data.raw["capsule"]["distractor-capsule"][k] = v
         data.raw["corpse"]["distractor-remnants"][k] = v
+        local item = data.raw["item"]["distractor-robot"]
+        if item then
+            item.pictures = nil
+            item[k] = v
+        end
     end
 
     -- Main Graphics

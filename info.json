@@ -1,6 +1,6 @@
 {
     "name": "bumble-bots",
-    "version": "0.18.2",
+    "version": "0.18.3",
     "title": "Bumble Bots",
     "author": "Maxreader",
     "contact": "",
@@ -10,9 +10,11 @@
         "base >= 0.17",
         "? boblogistics",
         "? bobwarfare",
+        "? angelsindustries",
         "? FactorioExtended-Plus-Logistics",
         "? pyindustry",
         "? pyhightech",
+        "? reskins-bobs",
         "? skan-fusion-robots",
         "! ShinyBobGFX",
         "! ShinyAngelGFX"

@@ -16,9 +16,7 @@ local set_construction_sprites_with_mask =
 local set_hive_sprites_with_mask = require('prototypes.hive')
 local set_larva_sprites_with_mask = require('prototypes.larva')
 
-require("prototypes.defender-wasp")
-require("prototypes.distractor-wasp")
-require("prototypes.destroyer-hornet")
+require("prototypes.combat-robots")
 require("prototypes.logistic-containers")
 
 set_logistic_sprites_with_mask("logistic-robot",
@@ -37,7 +35,7 @@ if mods["boblogistics"] then
     local logisticMapping = {
         ["logistic-robot"] = {255, 207, 15, 179},
         ["bob-logistic-robot-2"] = {255, 15, 15, 179},
-        ["bob-logistic-robot-3"] = {15, 19, 255, 179},
+        ["bob-logistic-robot-3"] = {15, 111, 255, 179},
         ["bob-logistic-robot-4"] = {143, 15, 255, 179},
         ["bob-logistic-robot-5"] = {15, 255, 31, 179}
     }
@@ -47,7 +45,7 @@ if mods["boblogistics"] then
     local constructionMapping = {
         ["construction-robot"] = {255, 200, 80, 155},
         ["bob-construction-robot-2"] = {255, 79, 79, 155},
-        ["bob-construction-robot-3"] = {79, 82, 255, 155},
+        ["bob-construction-robot-3"] = {79, 149, 255, 155},
         ["bob-construction-robot-4"] = {173, 79, 255, 155},
         ["bob-construction-robot-5"] = {79, 255, 91, 155}
     }
@@ -57,12 +55,13 @@ if mods["boblogistics"] then
     local hiveMapping = {
         ["roboport"] = {255, 200, 80, 155},
         ["bob-roboport-2"] = {255, 79, 79, 240},
-        ["bob-roboport-3"] = {79, 82, 255, 240},
+        ["bob-roboport-3"] = {79, 149, 255, 240},
         ["bob-roboport-4"] = {173, 79, 255, 240}
     }
     for robot, color in pairs(hiveMapping) do
         set_hive_sprites_with_mask(robot, color)
     end
+    require("prototypes.bobs-bot-parts")
 end
 
 if mods["pyindustry"] then
@@ -96,6 +95,12 @@ if mods["skan-fusion-robots"] then
                                    {0, 81, 255, 179})
     set_construction_sprites_with_mask("skan-construction-robot-fusion",
                                        {0, 81, 255, 179})
+end
+
+if mods["angelsindustries"] then
+    set_logistic_sprites_with_mask("cargo-robot", {161, 129, 0, 179}, 0.75)
+    set_logistic_sprites_with_mask("cargo-robot-2", {0, 0, 0, 179}, 0.85)
+    set_construction_sprites_with_mask("angels-construction-robot", {161, 129, 0, 179}, 0.75)
 end
 
 data.raw["utility-constants"].default.main_menu_background_image_location =

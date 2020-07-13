@@ -167,6 +167,7 @@ local function set_construction_sprites_with_mask(robot, tint, scale)
 
     constructionBee.icons = icons
     data.raw["item"][robot].icons = icons
+    data.raw["item"][robot].pictures = nil
     constructionBeeCorpse.icons = icons
 
 

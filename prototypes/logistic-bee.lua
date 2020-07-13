@@ -141,6 +141,7 @@ local function set_logistic_sprites_with_mask(robot, tint, scale)
     
     logisticBee.icons = icons
     data.raw["item"][robot].icons = icons
+    data.raw["item"][robot].pictures = nil
     logisticBeeCorpse.icons = icons
     
 -- Misc.

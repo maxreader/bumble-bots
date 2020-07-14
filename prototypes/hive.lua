@@ -9,14 +9,11 @@ local recharging_animation = {
     scale = 1.25,
     animation_speed = 0.5
 }
-for _, v in pairs(data.raw['roboport-equipment']) do
-    v.recharging_animation = recharging_animation
-end
+for _, v in pairs(data.raw['roboport-equipment']) do v.recharging_animation = recharging_animation end
 
 data.raw["roboport-equipment"]["personal-roboport-equipment"].sprite.filename =
     "__bumble-bots__/graphics/equipment/personal-beehive-equipment.png"
-data.raw["roboport-equipment"]["personal-roboport-mk2-equipment"].sprite
-    .filename =
+data.raw["roboport-equipment"]["personal-roboport-mk2-equipment"].sprite.filename =
     "__bumble-bots__/graphics/equipment/personal-beehive-mk2-equipment.png"
 data.raw["item"]["personal-roboport-equipment"].icon =
     "__bumble-bots__/graphics/icons/personal-beehive-equipment-icon.png"
@@ -29,11 +26,14 @@ local hiveVolume = 1.25 * settings.startup["bumble-bots-hive-volume"].value
 local doorVolumeMult = 1
 
 local function set_hive_sprites_with_mask(level, tint, animated, scale)
-    tint = tint or {255, 0, 255,}
+    tint = tint or {255, 0, 255}
     scale = scale or 1
     animated = animated or true
     local hive = data.raw["roboport"][level]
-    if not hive then log("Error: Roboport \""..level.."\" not found.") return end
+    if not hive then
+        log("Error: Roboport \"" .. level .. "\" not found.")
+        return
+    end
     local mainShift = {0, -0.5 * scale}
 
     -- Main sprites
@@ -109,7 +109,7 @@ local function set_hive_sprites_with_mask(level, tint, animated, scale)
         end
     end
     local hatchShift = util.by_pixel(0, -44.5)
-    hatchShift[2] = hatchShift[2]*scale + (1-scale) / 64
+    hatchShift[2] = hatchShift[2] * scale + (1 - scale) / 64
 
     hive.door_animation_up = {
         layers = {
@@ -163,7 +163,9 @@ local function set_hive_sprites_with_mask(level, tint, animated, scale)
 
     -- Robot Interactions
     ---------------------------------------------------------------------------------------------------
-    hive.charging_offsets = {{-1.2, -1.6}, {1.2, -1.6}, {1.2, 0.1}, {-1.2, 0.1}}
+    hive.charging_offsets = {
+        {-1.2, -1.6}, {1.2, -1.6}, {1.2, 0.1}, {-1.2, 0.1}
+    }
 
     hive.stationing_offset = {0, -0.8}
 
@@ -259,7 +261,10 @@ local function set_hive_sprites_with_mask(level, tint, animated, scale)
     -- Icons
     ---------------------------------------------------------------------------------------------------
     local icons = {
-        {icon = "__bumble-bots__/graphics/icons/beehive.png", icon_size = 64}, {
+        {
+            icon = "__bumble-bots__/graphics/icons/beehive.png",
+            icon_size = 64
+        }, {
             icon = "__bumble-bots__/graphics/icons/beehive-icon-mask.png",
             icon_size = 64,
             tint = tint

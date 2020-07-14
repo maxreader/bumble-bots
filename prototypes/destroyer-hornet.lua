@@ -34,7 +34,7 @@ if settings.startup["bumble-bots-enable-wasps"].value then
                     scale = 0.5,
                     y = 116,
                     frame_count = 1,
-                    direction_count = 32,
+                    direction_count = 32
                 }, {
                     filename = "__bumble-bots__/graphics/entity/destroyer-hornet/destroyer-hornet.png",
                     priority = "high",
@@ -44,7 +44,7 @@ if settings.startup["bumble-bots-enable-wasps"].value then
                     scale = 0.5,
                     frame_count = 1,
                     direction_count = 32,
-                    apply_runtime_tint = true,
+                    apply_runtime_tint = true
                 }
             }
         },
@@ -57,7 +57,7 @@ if settings.startup["bumble-bots-enable-wasps"].value then
             scale = 0.5,
             frame_count = 1,
             direction_count = 32,
-            draw_as_shadow = true,
+            draw_as_shadow = true
         },
         in_motion = {
             layers = {
@@ -70,7 +70,7 @@ if settings.startup["bumble-bots-enable-wasps"].value then
                     scale = 0.5,
                     y = 348,
                     frame_count = 1,
-                    direction_count = 32,
+                    direction_count = 32
                 }, {
                     filename = "__bumble-bots__/graphics/entity/destroyer-hornet/destroyer-hornet.png",
                     priority = "high",
@@ -81,7 +81,7 @@ if settings.startup["bumble-bots-enable-wasps"].value then
                     y = 232,
                     frame_count = 1,
                     direction_count = 32,
-                    apply_runtime_tint = true,
+                    apply_runtime_tint = true
                 }
             }
         },
@@ -95,12 +95,10 @@ if settings.startup["bumble-bots-enable-wasps"].value then
             frame_count = 1,
             direction_count = 32,
             draw_as_shadow = true,
-            y = 70,
+            y = 70
         }
     }
-    for k, v in pairs(graphics) do
-        destroyerHornet[k] = v
-    end
+    for k, v in pairs(graphics) do destroyerHornet[k] = v end
 
     local capsuleAnimation = {
         layers = {
@@ -156,22 +154,21 @@ if settings.startup["bumble-bots-enable-wasps"].value then
             direction_count = 1,
             scale = 0.5
         })
-        data.raw["corpse"]["destroyer-remnants"].ground_patch = 
-            {
-                sheet =
-                {
-                    filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
-                    flags = { "low-object" },
-                    line_length = 4,
-                    variation_count = 4,
-                    frame_count = 1,
-                    width = 164,
-                    height = 134,
-                    shift = {0, 0.125},
-                    tint = {r = 0.2, g = 0.8, b = 0.1, a = 1},
-                    scale = 0.3
-                }
+    data.raw["corpse"]["destroyer-remnants"].ground_patch =
+        {
+            sheet = {
+                filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
+                flags = {"low-object"},
+                line_length = 4,
+                variation_count = 4,
+                frame_count = 1,
+                width = 164,
+                height = 134,
+                shift = {0, 0.125},
+                tint = {r = 0.2, g = 0.8, b = 0.1, a = 1},
+                scale = 0.3
             }
+        }
 
 end
 return

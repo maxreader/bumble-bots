@@ -1,10 +1,10 @@
 if settings.startup["bumble-bots-enable-wasps"].value then
-    
+
     local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
     local defenderWasp = data.raw["combat-robot"]["defender"]
 
     defenderWasp.working_sound = buzzSounds.high_buzz
-    
+
     local icon_data = {
         icon = "__bumble-bots__/graphics/icons/defender-wasp.png",
         icon_size = 64,
@@ -157,12 +157,11 @@ if settings.startup["bumble-bots-enable-wasps"].value then
             direction_count = 1,
             scale = 0.25
         })
-    data.raw["corpse"]["defender-remnants"].ground_patch = 
+    data.raw["corpse"]["defender-remnants"].ground_patch =
         {
-            sheet =
-            {
+            sheet = {
                 filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
-                flags = { "low-object" },
+                flags = {"low-object"},
                 line_length = 4,
                 variation_count = 4,
                 frame_count = 1,

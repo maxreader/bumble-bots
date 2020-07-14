@@ -4,42 +4,46 @@ local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
 
 local function set_logistic_sprites_with_mask(robot, tint, scale)
     local logisticBee = data.raw["logistic-robot"][robot]
-    if not logisticBee then log("Error: Logistic robot \""..robot.."\" not found.") return end
+    if not logisticBee then
+        log("Error: Logistic robot \"" .. robot .. "\" not found.")
+        return
+    end
 
     scale = scale or 0.5
     scale = scale * bumble_bots.bot_size_multiplier
 
--- Main sprites
----------------------------------------------------------------------------------------------------
+    -- Main sprites
+    ---------------------------------------------------------------------------------------------------
     local sprites = {
         layers = {
-        {
-            filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee.png",
-            priority = "high",
-            line_length = 16,
-            width = 80,
-            height = 84,
-            frame_count = 1,
-            shift = util.by_pixel(0, -3),
-            direction_count = 16,
-            scale = scale,
-        },{
-            filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee-mask.png",
-            priority = "high",
-            line_length = 16,
-            width = 80,
-            height = 84,
-            frame_count = 1,
-            shift = util.by_pixel(0, -3),
-            direction_count = 16,
-            scale = scale,
-            flags = {"mask"},
-            tint = tint,
-        },
-    }}
-    
--- Shadows
----------------------------------------------------------------------------------------------------
+            {
+                filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee.png",
+                priority = "high",
+                line_length = 16,
+                width = 80,
+                height = 84,
+                frame_count = 1,
+                shift = util.by_pixel(0, -3),
+                direction_count = 16,
+                scale = scale
+            }, {
+                filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee-mask.png",
+                priority = "high",
+                line_length = 16,
+                width = 80,
+                height = 84,
+                frame_count = 1,
+                shift = util.by_pixel(0, -3),
+                direction_count = 16,
+                scale = scale,
+                flags = {"mask"},
+                tint = tint
+            }
+        }
+    }
+
+    -- Shadows
+    ---------------------------------------------------------------------------------------------------
     local shadows = {
         filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee-shadow.png",
         priority = "high",
@@ -72,12 +76,12 @@ local function set_logistic_sprites_with_mask(robot, tint, scale)
     logisticBee.shadow_in_motion_with_cargo.y = shadows.height * 2
     logisticBee.shadow_in_motion.y = shadows.height * 3
 
--- Corpse
----------------------------------------------------------------------------------------------------
-    local logisticBeeCorpse = data.raw["corpse"][robot.."-remnants"]
-    if data.raw["corpse"][robot.."-remnants"] == nil then
+    -- Corpse
+    ---------------------------------------------------------------------------------------------------
+    local logisticBeeCorpse = data.raw["corpse"][robot .. "-remnants"]
+    if data.raw["corpse"][robot .. "-remnants"] == nil then
         logisticBeeCorpse = table.deepcopy(data.raw["corpse"]["logistic-robot-remnants"])
-        logisticBeeCorpse.name = robot.."-remnants"
+        logisticBeeCorpse.name = robot .. "-remnants"
         data:extend{logisticBeeCorpse}
     end
 
@@ -94,7 +98,7 @@ local function set_logistic_sprites_with_mask(robot, tint, scale)
                 direction_count = 1,
                 shift = util.by_pixel(1, 1),
                 scale = 0.8 * scale
-            },{
+            }, {
                 filename = "__bumble-bots__/graphics/entity/logistic-bee/logistic-bee-corpse-mask.png",
                 line_length = 1,
                 width = 116,
@@ -106,10 +110,10 @@ local function set_logistic_sprites_with_mask(robot, tint, scale)
                 shift = util.by_pixel(1, 1),
                 scale = 0.8 * scale,
                 flags = {"mask"},
-                tint = tint,
+                tint = tint
 
             }
-        }     
+        }
     })
     logisticBeeCorpse.ground_patch = {
         sheet = {
@@ -126,41 +130,42 @@ local function set_logistic_sprites_with_mask(robot, tint, scale)
         }
     }
 
--- icons
----------------------------------------------------------------------------------------------------
+    -- icons
+    ---------------------------------------------------------------------------------------------------
     local icons = {
-            {
-                icon = "__bumble-bots__/graphics/icons/logistic-bee-icon.png",
-                icon_size = 64,
-            },{
-                icon = "__bumble-bots__/graphics/icons/logistic-bee-icon-mask.png",
-                icon_size = 64,
-                tint = tint
-            },
+        {
+            icon = "__bumble-bots__/graphics/icons/logistic-bee-icon.png",
+            icon_size = 64
+        }, {
+            icon = "__bumble-bots__/graphics/icons/logistic-bee-icon-mask.png",
+            icon_size = 64,
+            tint = tint
+        }
     }
-    
+
     logisticBee.icons = icons
     data.raw["item"][robot].icons = icons
     data.raw["item"][robot].pictures = nil
     logisticBeeCorpse.icons = icons
-    
--- Misc.
----------------------------------------------------------------------------------------------------
+
+    -- Misc.
+    ---------------------------------------------------------------------------------------------------
     -- Sounds
     logisticBee.working_sound = buzzSounds.medium_buzz
 
     -- Changing cargo center
     logisticBee.cargo_centered = {0.0, -0.75}
 
-    --Make bees show up on map
+    -- Make bees show up on map
     if settings.startup["bumble-bots-show-bots-on-map"].value then
         local flags = logisticBee.flags
-        for k,v in pairs(flags) do
-            if v == "not-on-map" then
-                table.remove(flags,k)
-            end
-        end
-        logisticBee.map_color = {r=1,g=1,b=0.2,a=0.6}
+        for k, v in pairs(flags) do if v == "not-on-map" then table.remove(flags, k) end end
+        logisticBee.map_color = {
+            r = 1,
+            g = 1,
+            b = 0.2,
+            a = 0.6
+        }
     end
 
 end

@@ -7,12 +7,13 @@ if settings.startup["bobmods-logistics-robotparts"].value then
         {{219, 179, 255}, {201, 173, 131}} -- ceramic
     }
 
-    if mods["angelsindustries"] then levels[3][2] = {211, 165, 210} end
-    
+    if mods["angelsindustries"] then levels[3][2] =
+        {211, 165, 210} end
+
     local types = {
-        construction = {{77, 153, 87},{57, 255, 86}}, -- mint
-        logistic = {{77, 126, 153},{57, 187, 255}}, -- ice blue
-        combat = {{152, 77, 153},{252, 59, 255}} -- violet
+        construction = {{77, 153, 87}, {57, 255, 86}}, -- mint
+        logistic = {{77, 126, 153}, {57, 187, 255}}, -- ice blue
+        combat = {{152, 77, 153}, {252, 59, 255}} -- violet
     }
     for level, levelColors in pairs(levels) do
         for type, typeColor in pairs(types) do

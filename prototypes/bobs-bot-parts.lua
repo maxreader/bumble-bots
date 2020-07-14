@@ -1,4 +1,5 @@
-if settings.startup["bobmods-logistics-robotparts"].value then
+if settings.startup["bobmods-logistics-robotparts"].value and
+    settings.startup["bumble-bots-enable-bob-bot-part-reskin"].value then
     local items = data.raw["item"]
     local levels = {
         {{255, 240, 179}, {179, 179, 179}}, -- steel

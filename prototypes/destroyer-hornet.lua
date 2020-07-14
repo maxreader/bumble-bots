@@ -2,24 +2,38 @@ if settings.startup["bumble-bots-enable-wasps"].value then
 
     local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
     local destroyerHornet = data.raw["combat-robot"]["destroyer"]
+    local item = data.raw["item"]["destroyer-robot"]
     destroyerHornet.working_sound = buzzSounds.low_buzz
 
     local icon_data = {
-        icon = "__bumble-bots__/graphics/icons/destroyer-hornet.png",
-        icon_size = 64,
-        icon_mipmaps = 1
+        icons = {
+            {
+                icon = "__bumble-bots__/graphics/icons/destroyer-hornet.png",
+                icon_size = 64
+            }
+        },
+        pictures = false
     }
 
     for k, v in pairs(icon_data) do
+        v = v or nil
         destroyerHornet[k] = v
-        data.raw["capsule"]["destroyer-capsule"][k] = v
         data.raw["corpse"]["destroyer-remnants"][k] = v
-        local item = data.raw["item"]["destroyer-robot"]
-        if item then
-            item.pictures = nil
-            item[k] = v
-        end
+        if item then item[k] = v end
     end
+
+    data.raw["capsule"]["destroyer-capsule"].icons =
+        {
+            {
+                icon = "__bumble-bots__/graphics/icons/destroyer-hornet.png",
+                icon_size = 64
+            }, {
+                icon = "__core__/graphics/icons/tooltips/tooltip-category-thrown.png",
+                icon_size = 40,
+                scale = 0.5,
+                shift = bumble_bots.capsule_icon_shift
+            }
+        }
 
     local graphics = {
 
@@ -122,8 +136,8 @@ if settings.startup["bumble-bots-enable-wasps"].value then
                 y = 232,
                 priority = "high",
                 apply_runtime_tint = true,
-                scale = 0.7,
-                shift = util.by_pixel(2.5, -17)
+                scale = 0.7
+                -- shift = util.by_pixel(2.5, -17)
             }
         }
     }

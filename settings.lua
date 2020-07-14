@@ -65,4 +65,14 @@ data:extend({
     }
 
 })
-
+if mods["boblogistics"] or mods["bobwarfare"] then
+    data:extend{
+        {
+            type = "bool-setting",
+            name = "bumble-bots-enable-bob-bot-part-reskin",
+            setting_type = "startup",
+            default_value = true,
+            order = "1"
+        }
+    }
+end

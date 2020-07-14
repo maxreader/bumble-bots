@@ -7,6 +7,7 @@ local botSizeDict = {
     ["tiny"] = 0.25
 }
 bumble_bots.bot_size_multiplier = botSizeDict[settings.startup["bumble-bots-bee-size"].value]
+bumble_bots.capsule_icon_shift = {-8, 8}
 local animated = settings.startup["bumble-bots-enable-hive-animation"].value
 local set_logistic_sprites_with_mask = require('prototypes.logistic-bee')
 local set_construction_sprites_with_mask = require('prototypes.construction-bee')

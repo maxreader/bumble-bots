@@ -2,25 +2,39 @@ if settings.startup["bumble-bots-enable-wasps"].value then
 
     local buzzSounds = require("__bumble-bots__/prototypes/buzz-sounds")
     local defenderWasp = data.raw["combat-robot"]["defender"]
+    local item = data.raw["item"]["defender-robot"]
 
     defenderWasp.working_sound = buzzSounds.high_buzz
 
     local icon_data = {
-        icon = "__bumble-bots__/graphics/icons/defender-wasp.png",
-        icon_size = 64,
-        icon_mipmaps = 1
+        icons = {
+            {
+                icon = "__bumble-bots__/graphics/icons/defender-wasp.png",
+                icon_size = 64
+            }
+        },
+        pictures = false
     }
 
     for k, v in pairs(icon_data) do
+        v = v or nil
         defenderWasp[k] = v
-        data.raw["capsule"]["defender-capsule"][k] = v
         data.raw["corpse"]["defender-remnants"][k] = v
-        local item = data.raw["item"]["defender-robot"]
-        if item then
-            item.pictures = nil
-            item[k] = v
-        end
+        if item then item[k] = v end
     end
+
+    data.raw["capsule"]["defender-capsule"].icons =
+        {
+            {
+                icon = "__bumble-bots__/graphics/icons/defender-wasp.png",
+                icon_size = 64
+            }, {
+                icon = "__core__/graphics/icons/tooltips/tooltip-category-thrown.png",
+                icon_size = 40,
+                scale = 0.5,
+                shift = bumble_bots.capsule_icon_shift
+            }
+        }
 
     local graphics = {
         idle = {

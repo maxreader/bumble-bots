@@ -273,6 +273,7 @@ local function set_hive_sprites_with_mask(level, tint, animated, scale)
 
     hive.icons = icons
     data.raw["item"][level].icons = icons
+    data.raw["item"][level].pictures = nil
     hiveRemnant.icons = icons
 
 end

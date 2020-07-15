@@ -19,5 +19,14 @@
         "! ShinyBobGFX",
         "! ShinyAngelGFX"
     ],
-    "description": "Bots are now bees. Enjoy."
+    "description": "Bots are now bees. Enjoy.",
+    "package": {
+        "ignore": [
+            ".vscode/launch.json",
+            ".vscode/settings.json",
+            ".vscode/style.txt",
+            "bumble-bots/.gitattributes",
+            ".gitignore"
+        ]
+    }
 }

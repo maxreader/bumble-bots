@@ -1,5 +1,14 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.2
+Date: 2020.07.14
+  Features:
+    - Support for Bob's bot parts
+    - Option to disable reskin for bob's bot parts
+    - Support for Bob's combat robot changes
+  Bugfixes:
+    - Expanded support for reskin-bobs
+---------------------------------------------------------------------------------------------------
+Version: 0.18.2
 Date: 2020.07.03
   Features:
     - Added modded support for construction bees, logistic bees, and beehives.

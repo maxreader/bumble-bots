@@ -24,36 +24,40 @@ if settings.startup["bobmods-logistics-robotparts"].value and
                 brainName = brainName .. "-" .. level
                 toolName = toolName .. "-" .. level
             end
-            items[brainName].icons = {
-                {
-                    icon = "__bumble-bots__/graphics/icons/bee-parts/implant-base.png",
-                    size = 64
-                }, {
-                    icon = "__bumble-bots__/graphics/icons/bee-parts/implant-backpack.png",
-                    size = 64,
-                    tint = typeColor[1]
-                }, {
-                    icon = "__bumble-bots__/graphics/icons/bee-parts/implant-electrodes.png",
-                    size = 64,
-                    tint = levelColors[1]
+            if items[brainName] then
+                items[brainName].icons = {
+                    {
+                        icon = "__bumble-bots__/graphics/icons/bee-parts/implant-base.png",
+                        size = 64
+                    }, {
+                        icon = "__bumble-bots__/graphics/icons/bee-parts/implant-backpack.png",
+                        size = 64,
+                        tint = typeColor[1]
+                    }, {
+                        icon = "__bumble-bots__/graphics/icons/bee-parts/implant-electrodes.png",
+                        size = 64,
+                        tint = levelColors[1]
+                    }
                 }
-            }
-            items[toolName].icons = {
-                {
-                    icon = "__bumble-bots__/graphics/icons/bee-parts/mandible-translucent.png",
-                    size = 64
-                }, {
-                    icon = "__bumble-bots__/graphics/icons/bee-parts/prosthetic-base.png",
-                    size = 64,
-                    tint = levelColors[2]
-                }, {
-                    icon = "__bumble-bots__/graphics/icons/bee-parts/prosthetic-detail.png",
-                    size = 64,
-                    tint = typeColor[2]
+                items[brainName].icon_size = 64
+            end
+            if items[toolName] then
+                items[toolName].icons = {
+                    {
+                        icon = "__bumble-bots__/graphics/icons/bee-parts/mandible-translucent.png",
+                        size = 64
+                    }, {
+                        icon = "__bumble-bots__/graphics/icons/bee-parts/prosthetic-base.png",
+                        size = 64,
+                        tint = levelColors[2]
+                    }, {
+                        icon = "__bumble-bots__/graphics/icons/bee-parts/prosthetic-detail.png",
+                        size = 64,
+                        tint = typeColor[2]
+                    }
                 }
-            }
-            items[brainName].icon_size = 64
-            items[toolName].icon_size = 64
+                items[toolName].icon_size = 64
+            end
         end
     end
 end

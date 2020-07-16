@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.4
-Date: 2020.07.16
+Date: 2020-07-16
   Bugfixes:
     - Fixed error in Bob's robot parts when using Bob's Logistics without Bob's Warfare
     - Fixed wrong version number in changelog for previous release

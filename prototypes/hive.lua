@@ -160,6 +160,7 @@ local function set_hive_sprites_with_mask(level, tint, animated, scale)
         width = 1,
         height = 1
     }
+    hive.drawing_box = {{-1.9, -2.4}, {1.9, 1.4}}
 
     -- Robot Interactions
     ---------------------------------------------------------------------------------------------------

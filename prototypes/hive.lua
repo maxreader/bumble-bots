@@ -13,8 +13,10 @@ for _, v in pairs(data.raw['roboport-equipment']) do v.recharging_animation = re
 
 data.raw["roboport-equipment"]["personal-roboport-equipment"].sprite.filename =
     "__bumble-bots__/graphics/equipment/personal-beehive-equipment.png"
+data.raw["roboport-equipment"]["personal-roboport-equipment"].sprite.scale = 1
 data.raw["roboport-equipment"]["personal-roboport-mk2-equipment"].sprite.filename =
     "__bumble-bots__/graphics/equipment/personal-beehive-mk2-equipment.png"
+data.raw["roboport-equipment"]["personal-roboport-mk2-equipment"].sprite.scale = 1
 data.raw["item"]["personal-roboport-equipment"].icon =
     "__bumble-bots__/graphics/icons/personal-beehive-equipment-icon.png"
 data.raw["item"]["personal-roboport-equipment"].icon_size = 64

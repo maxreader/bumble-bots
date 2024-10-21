@@ -117,7 +117,7 @@ local function set_logistic_sprites_with_mask(robot, tint, scale)
     })
     logisticBeeCorpse.ground_patch = {
         sheet = {
-            filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
+            filename = "__base__/graphics/entity/biter/blood-puddle-var-main.png",
             flags = {"low-object"},
             line_length = 4,
             variation_count = 4,

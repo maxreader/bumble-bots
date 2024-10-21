@@ -1,7 +1,7 @@
 -- Applies new sprites to all five logistic chests
 ---------------------------------------------------------------------------------------------------
 if settings.startup["bumble-bots-enable-flowers"].value then
-    local sounds = require("__base__/prototypes/entity/demo-sounds")
+    local sounds = require("__base__/prototypes/entity/sounds.lua")
     -- List of bush types
     local bushTypes = {
         "storage", "passive-provider", "active-provider",
@@ -90,15 +90,15 @@ if settings.startup["bumble-bots-enable-flowers"].value then
         }
     }
 
-    circuit_connector_definitions["bush"] = circuit_connector_definitions.create(
-                                                bush_connector_template, {
+    circuit_connector_definitions["bush"] = circuit_connector_definitions.create_single(
+        universal_connector_template,
             {
                 variation = 0,
                 main_offset = util.by_pixel(0, 0),
                 shadow_offset = util.by_pixel(0, 0),
                 show_shadow = false
             }
-        })
+        )
 
     -- Animations
     local function get_animation(name)
@@ -184,15 +184,15 @@ if settings.startup["bumble-bots-enable-flowers"].value then
 
     -- Apply changes to each type
     for _, v in pairs(bushTypes) do
-        local bush = data.raw["logistic-container"]["logistic-chest-" .. v]
+        local bush = data.raw["logistic-container"][v.."-chest"]
         bush.animation = get_animation(v)
         bush.animation_sound = animation_sound
         bush.open_sound = {
-            filename = "__base__/sound/walking/plant/bush-small-01.ogg",
+            filename = "__base__/sound/walking/plant/bush-small-1.ogg",
             volume = 1
         }
         bush.close_sound = {
-            filename = "__base__/sound/walking/plant/bush-small-02.ogg",
+            filename = "__base__/sound/walking/plant/bush-small-2.ogg",
             volume = 1
         }
         bush.vehicle_impact_sound = sounds.plant
@@ -203,7 +203,7 @@ if settings.startup["bumble-bots-enable-flowers"].value then
         bush.icon_mipmaps = 1
         bush.corpse = "logistic-bush-remnants"
 
-        local bush_icon = data.raw["item"]["logistic-chest-" .. v]
+        local bush_icon = data.raw["item"][v.."-chest"]
         bush_icon.icon = "__bumble-bots__/graphics/icons/" .. v .. ".png"
         bush_icon.icon_size = 64
         bush_icon.icon_mipmaps = 1

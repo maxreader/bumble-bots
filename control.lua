@@ -25,11 +25,11 @@ end
 
 local filters = {{filter = "name", name = "roboport"}}
 
-script.on_event(defines.events.on_built_entity, function(event) add_hive(event.created_entity) end,
+script.on_event(defines.events.on_built_entity, function(event) add_hive(event.entity) end,
                 filters)
 
 script.on_event(defines.events.on_robot_built_entity,
-                function(event) add_hive(event.created_entity) end, filters)
+                function(event) add_hive(event.entity) end, filters)
 
 --[[script.on_event(
     {

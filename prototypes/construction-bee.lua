@@ -138,7 +138,7 @@ local function set_construction_sprites_with_mask(robot, tint, scale)
 
     constructionBeeCorpse.ground_patch = {
         sheet = {
-            filename = "__base__/graphics/entity/biter/hr-blood-puddle-var-main.png",
+            filename = "__base__/graphics/entity/biter/blood-puddle-var-main.png",
             flags = {"low-object"},
             line_length = 4,
             variation_count = 4,

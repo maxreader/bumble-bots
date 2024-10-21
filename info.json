@@ -1,11 +1,11 @@
 {
     "name": "bumble-bots",
-    "version": "0.18.5",
+    "version": "0.18.6",
     "title": "Bumble Bots",
     "author": "Maxreader",
     "contact": "",
     "homepage": "",
-    "factorio_version": "0.18",
+    "factorio_version": "2.0",
     "dependencies": [
         "base >= 0.17",
         "? boblogistics",
@@ -17,7 +17,8 @@
         "? reskins-bobs",
         "? skan-fusion-robots",
         "! ShinyBobGFX",
-        "! ShinyAngelGFX"
+        "! ShinyAngelGFX",
+        "? brave-new-oarc"
     ],
     "description": "Bots are now bees. Enjoy.",
     "package": {
